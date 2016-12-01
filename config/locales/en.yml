@@ -1,0 +1,38 @@
+en:
+  activerecord:
+    errors:
+      models:
+        advertisement:
+          attributes:
+            name:
+              blank: "Nome inválido"
+            category:
+              blank: "Categoria inválida"
+            address:
+              blank: "Endereço inválido"
+            neighborhood:
+              blank: "Bairro inválido"
+            number:
+              blank: "Número inválido"
+            zip_code:
+              blank: "Cep inválido"
+            City:
+              blank: "Cidade inválida"
+        city:
+          attributes:
+            name:
+              blank: "Nome inválido"
+              taken: "Cidade já cadastrada"
+        category:
+          attributes:
+            name:
+              blank: "Nome inválido"
+              taken: "Categoria já cadastrada"
+            icon:
+              blank: "Icon inválido"
+        image:
+          attributes:
+            title:
+              blank: "Título inválido"
+            description:
+              blank: "Descrição inválida"
