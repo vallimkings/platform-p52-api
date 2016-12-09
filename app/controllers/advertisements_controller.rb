@@ -2,13 +2,13 @@ class AdvertisementsController < ApplicationController
  require 'wannabe_bool'
  before_action :require_logged_user, :only => [:create, :update, :destroy]
 
-  def index
-    if params[:highlights] == true
-      @advertisements = interactor.all(advertisement_template.city_id).where(status: true, highlights: true).order("RANDOM()")
-    else
-      @advertisements = interactor.all(advertisement_template.city_id).where(status: true)
-    end
-  end
+ def index
+   if params[:highlights].to_b == true
+     @advertisements = interactor.all(advertisement_template.city_id).where(status: true, highlights: true).order("RANDOM()")
+   else
+     @advertisements = interactor.all(advertisement_template.city_id).where(status: true)
+   end
+ end
 
   def show
     @advertisement = authorized_advertisement
