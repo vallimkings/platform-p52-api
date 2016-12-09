@@ -3,8 +3,11 @@ class AdvertisementsController < ApplicationController
  before_action :require_logged_user, :only => [:create, :update, :destroy]
 
   def index
-    highlights = params[:highlights].to_b ? params[:highlights].present? : false
-    @advertisements = interactor.all(advertisement_template.city_id).where(status: true, highlights: highlights).order("RANDOM()")
+    if params[:highlights] == true
+      @advertisements = interactor.all(advertisement_template.city_id).where(status: true, highlights: true).order("RANDOM()")
+    else
+      @advertisements = interactor.all(advertisement_template.city_id).where(status: true)
+    end
   end
 
   def show
