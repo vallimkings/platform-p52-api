@@ -3,7 +3,7 @@ class Advertisement < ActiveRecord::Base
   belongs_to :city
   belongs_to :category
   has_many :image, dependent: :delete_all
-  validates :name, :address, :neighborhood, :number, :zip_code, :city, :category, presence: true
+  validates :name, :city, :category, presence: true
 
 
   def self.find_by_city (city_id)
