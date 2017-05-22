@@ -16,9 +16,10 @@ class AdvertisementInteractor < BaseInteractor
       Advertisement.where(city_id: city_id, category_id: category_id)
   end
 
-  def update(fields, advertisement)
-    advertisement[:highlights_initial] = Time.now if advertisement[:highlights]
-    super fields, advertisement
+  def update(advertisement, fields)
+    advertisement[:highlights_initial] = Time.now if fields[:highlights]
+    advertisement[:highlights_initial] = false unless fields[:highlights]
+    super advertisement, fields
   end
 
 end

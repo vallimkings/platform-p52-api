@@ -23,6 +23,15 @@ development: &development
   database: platform-p52-api
   <% end %>
 
+test: &test
+  <<: *default
+  <% if ENV['IS_REMOTE_DATABASE'] %>
+  username: <%= ENV['DATABASE_USER_NAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] || "localhost" %>
+  database: platform-p52-api
+  <% end %>
+
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
